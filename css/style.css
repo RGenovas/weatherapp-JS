@@ -10,8 +10,15 @@ body {
     margin:0;
     background-color: var(--bodyBG);
     background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     transition:background-image 0.5s ease-in-out;
     font-size: 120%;
+}
+
+.credit {
+    font-size: 1rem;
+    font-weight: 600;
 }
 
 .card {

@@ -36,16 +36,19 @@ let weather = {
     },
     fetchImage: function(query) {
         const pexelsApi = '7ZRIPUtVjgZRqxlgaA7NsOSV87LVnSDvnVKaTLAhSTqtMISG3yAN4DuQ'
-        const url = `https://api.pexels.com/v1/search?query=${query}&per_page=1`
-
+        const url = `https://api.pexels.com/v1/search?query=${query}+'cityscape'&per_page=80`
+        let randomBG = Math.round(Math.random()  * 79)
         fetch(url, {
             headers: {Authorization: pexelsApi}
         })
         .then(response =>response.json())
         .then(data => {
             if(data.photos.length > 0) {
-                document.body.style.backgroundImage = `url(${data.photos[0].src.large})`
-                console.log(`${data.photos[0].src.large}`)
+                
+                document.body.style.backgroundImage = `url(${data.photos[randomBG].src.large2x})`
+                document.getElementById('credit').innerHTML = `Photo by: <a href=${data.photos[randomBG].url} target="_blank">
+                ${data.photos[randomBG].photographer} </a>`
+                console.log(data.photos[randomBG])
             } else {
                     console.log(`No image found for ` + query);
                 }
