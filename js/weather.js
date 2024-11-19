@@ -1,5 +1,7 @@
 let weather = {
     apiKey: '0aa8679f7f4cfb9af5b36c2935c1a05d',
+
+    // old key 0aa8679f7f4cfb9af5b36c2935c1a05d
     fetchWeather: function(city) {
         fetch(
             'https://api.openweathermap.org/data/2.5/weather?q=' + 
@@ -22,6 +24,7 @@ let weather = {
         const {icon,description} = data.weather[0]
         const {temp, humidity} = data.main
         const {speed} = data.wind
+        console.log(data.weather);
 
         document.querySelector('.city').innerText = 'Weather in ' + name 
         document.querySelector('.icon').src = 'https://openweathermap.org/img/wn/' + icon + '.png'
